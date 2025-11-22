@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Our YouTube Community - Subscribe Now!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 50%, #000000 100%);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #FF0000, #FF4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+    }
+    
+    .subscribe-btn {
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+    
+    .subscribe-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.6);
+    }
+    
+    .subscribe-btn:active {
+      transform: translateY(0);
+    }
+    
+    .play-button {
+      width: 0;
+      height: 0;
+      border-left: 30px solid white;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      margin-left: 8px;
+    }
+    
+    .shimmer-effect {
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+    
+    .success-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeInUp 0.3s ease-out;
+    }
+    
+    .success-overlay.show {
+      display: flex;
+    }
+    
+    .success-content {
+      text-align: center;
+      animation: fadeInUp 0.3s ease-out;
+    }
+    
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FF0000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 20px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+  
+  <!-- Success Overlay -->
+  <div id="successOverlay" class="success-overlay">
+    <div class="success-content">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-4xl font-bold mb-2">Thank You!</h2>
+      <p class="text-xl text-gray-300">Redirecting you to our channel...</p>
+    </div>
+  </div>
+  
+  <!-- Minimal Hero Section -->
+  <section class="gradient-bg py-16 md:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-48 h-48 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-64 h-64 bg-red-300 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        
+        <!-- YouTube Play Button Icon -->
+        <div class="flex justify-center mb-6 animate-float">
+          <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
+            <div class="play-button" style="border-left-width: 20px; border-top-width: 13px; border-bottom-width: 13px; margin-left: 5px;"></div>
+          </div>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up" style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">
+          Join Our Community
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-100 animate-fade-in-up" style="animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards;">
+          Discover content tailored to your interests
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Subscribe Form Section (TOP PRIORITY) -->
+  <section class="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-10 right-10 w-96 h-96 bg-red-500 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-2xl mx-auto">
+        
+        <div class="text-center mb-10">
+          <div class="inline-block bg-red-600 text-white px-6 py-2 rounded-full font-semibold mb-6 animate-pulse-slow">
+            🔔 JOIN NOW
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Ready to Subscribe?</h2>
+          <p class="text-lg text-gray-400">Tell us what you love to watch and hit that subscribe button!</p>
+        </div>
+        
+        <div class="bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-700">
+          
+          <form name="youtube-survey" id="youtubeForm" class="space-y-6">
+            
+            <!-- Name Field -->
+            <div>
+              <label for="Name" class="block text-lg font-semibold mb-3 text-white">
+                👤 Your Name
+              </label>
+              <input 
+                type="text" 
+                name="Name" 
+                id="Name"
+                required 
+                class="w-full px-6 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 focus:outline-none transition-all duration-300" 
+                placeholder="Enter your name" 
+              />
+            </div>
+
+            <!-- Email Field -->
+            <div>
+              <label for="Email" class="block text-lg font-semibold mb-3 text-white">
+                📧 Your Email
+              </label>
+              <input 
+                type="email" 
+                name="Email" 
+                id="Email"
+                required 
+                class="w-full px-6 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 focus:outline-none transition-all duration-300" 
+                placeholder="Enter your email" 
+              />
+            </div>
+
+            <!-- College Name Field -->
+            <div>
+              <label for="CollegeName" class="block text-lg font-semibold mb-3 text-white">
+                🎓 College Name
+              </label>
+              <input 
+                type="text" 
+                name="CollegeName" 
+                id="CollegeName"
+                required 
+                class="w-full px-6 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 focus:outline-none transition-all duration-300" 
+                placeholder="Enter your college name" 
+              />
+            </div>
+            
+            <!-- Content Interest Dropdown -->
+            <div>
+              <label for="ContentInterest" class="block text-lg font-semibold mb-3 text-white">
+                🎯 What Content Interests You Most?
+              </label>
+              <select 
+                name="ContentInterest" 
+                id="ContentInterest"
+                required 
+                class="w-full px-6 py-4 pr-12 bg-gray-900 border-2 border-gray-700 rounded-xl text-white focus:border-red-500 focus:ring-2 focus:ring-red-500/50 focus:outline-none transition-all duration-300 cursor-pointer"
+              >
+                <option value="" disabled selected class="text-gray-500">Choose your favorite content type</option>
+                <option value="Tech Reviews & Tutorials">💻 Tech Reviews &amp; Tutorials</option>
+                <option value="Gaming & Entertainment">🎮 Gaming &amp; Entertainment</option>
+                <option value="Educational Content">📚 Educational Content</option>
+                <option value="Lifestyle & Vlogs">✨ Lifestyle &amp; Vlogs</option>
+                <option value="Finance & Business">💰 Finance &amp; Business</option>
+                <option value="Coding & Programming">👨‍💻 Coding &amp; Programming</option>
+                <option value="Product Reviews">📦 Product Reviews</option>
+                <option value="Motivational Content">🚀 Motivational Content</option>
+                <option value="Comedy & Skits">😂 Comedy &amp; Skits</option>
+                <option value="Travel & Adventure">✈️ Travel &amp; Adventure</option>
+                <option value="Food & Cooking">🍳 Food &amp; Cooking</option>
+                <option value="Fitness & Health">💪 Fitness &amp; Health</option>
+                <option value="Music & Dance">🎵 Music &amp; Dance</option>
+                <option value="Art & Creativity">🎨 Art &amp; Creativity</option>
+                <option value="News & Current Affairs">📰 News &amp; Current Affairs</option>
+                <option value="Science & Technology">🔬 Science &amp; Technology</option>
+                <option value="Sports & Cricket">🏏 Sports &amp; Cricket</option>
+                <option value="Movie Reviews & Analysis">🎬 Movie Reviews &amp; Analysis</option>
+                <option value="Study Tips & Career Guidance">📖 Study Tips &amp; Career Guidance</option>
+                <option value="Entrepreneurship & Startups">🚀 Entrepreneurship &amp; Startups</option>
+              </select>
+            </div>
+            
+            <!-- Hidden Field - Timestamp Only -->
+            <input type="hidden" id="Timestamp" name="Timestamp">
+            
+            <!-- Subscribe Button -->
+            <div class="pt-4">
+              <button 
+                type="submit" 
+                id="subscribeBtn"
+                class="subscribe-btn w-full py-5 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 group"
+              >
+                <span id="btnText">🔔 Subscribe Now</span>
+                <svg class="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <p class="text-center text-sm text-gray-400 mt-4">
+              🎁 By subscribing, you'll get notifications for all our new videos!
+            </p>
+            
+          </form>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content Preview Section -->
+  <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">What You'll Get</h2>
+        <p class="text-xl text-gray-400">Premium content delivered straight to your feed</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        
+        <div class="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-8 text-center card-hover">
+          <div class="text-5xl mb-4">🎬</div>
+          <h3 class="text-xl font-bold mb-3">Regular Videos</h3>
+          <p class="text-gray-200">Fresh content uploaded weekly to keep you engaged</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-8 text-center card-hover">
+          <div class="text-5xl mb-4">💬</div>
+          <h3 class="text-xl font-bold mb-3">Community</h3>
+          <p class="text-gray-200">Join discussions and connect with like-minded viewers</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-center card-hover">
+          <div class="text-5xl mb-4">🎁</div>
+          <h3 class="text-xl font-bold mb-3">Exclusive Content</h3>
+          <p class="text-gray-200">Special videos and behind-the-scenes footage</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-2xl p-8 text-center card-hover">
+          <div class="text-5xl mb-4">📅</div>
+          <h3 class="text-xl font-bold mb-3">Weekly Uploads</h3>
+          <p class="text-gray-200">Never miss out with our consistent schedule</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content Categories Showcase -->
+  <section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Content for Everyone</h2>
+        <p class="text-xl text-gray-400">Explore diverse topics that match your interests</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">💻</div>
+          <p class="text-sm font-semibold">Tech &amp; Coding</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🎮</div>
+          <p class="text-sm font-semibold">Gaming</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">📚</div>
+          <p class="text-sm font-semibold">Education</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🎬</div>
+          <p class="text-sm font-semibold">Entertainment</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">💼</div>
+          <p class="text-sm font-semibold">Business</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🏋️</div>
+          <p class="text-sm font-semibold">Fitness</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🎨</div>
+          <p class="text-sm font-semibold">Art</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🌍</div>
+          <p class="text-sm font-semibold">Travel</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🍳</div>
+          <p class="text-sm font-semibold">Food</p>
+        </div>
+        <div class="bg-gray-800 hover:bg-red-600 p-4 rounded-xl text-center transition-all duration-300 cursor-pointer">
+          <div class="text-3xl mb-2">🎵</div>
+          <p class="text-sm font-semibold">Music</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Subscribe?</h2>
+          <p class="text-xl text-gray-400">Join our community and unlock these benefits</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">📹</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">High-Quality Content</h3>
+              <p class="text-gray-400">Every video is carefully crafted with professional editing and clear audio</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">⏰</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Consistent Schedule</h3>
+              <p class="text-gray-400">New videos every week so you always have something to watch</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">👥</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Active Community</h3>
+              <p class="text-gray-400">Engage with fellow subscribers in comments and live chats</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">🎓</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Learn &amp; Grow</h3>
+              <p class="text-gray-400">Educational content that helps you develop new skills</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">🔔</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Never Miss Out</h3>
+              <p class="text-gray-400">Get notified immediately when we upload new content</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <div class="text-4xl">💝</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Free Forever</h3>
+              <p class="text-gray-400">All our content is completely free - just subscribe and enjoy!</p>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 py-12">
+    <div class="container mx-auto px-6">
+      <div class="text-center">
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+            <div class="play-button" style="border-left-width: 20px; border-top-width: 13px; border-bottom-width: 13px; margin-left: 5px;"></div>
+          </div>
+        </div>
+        <p class="text-gray-400 mb-4">Join thousands of subscribers and be part of our growing community</p>
+        <p class="text-gray-600 text-sm">&copy; 2025 YouTube Channel Community. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Set timestamp on page load
+    function updateTimestamp() {
+      document.getElementById('Timestamp').value = new Date().toISOString();
+    }
+    
+    // Update timestamp initially and before form submission
+    updateTimestamp();
+    
+    // Google Apps Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyHQgCmjBsc1IAKbKSH1HFvcitjJVE7p_v04OtZfeR4SNsFDpLDbvR3x2TAIUNuS8e2rQ/exec';
+    const youtubeChannelURL = 'https://www.youtube.com/@Students_Aura';
+    
+    const form = document.getElementById('youtubeForm');
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const btnText = document.getElementById('btnText');
+    const successOverlay = document.getElementById('successOverlay');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Update timestamp before submission
+      updateTimestamp();
+      
+      // Disable button and show loading state
+      subscribeBtn.disabled = true;
+      btnText.textContent = 'Processing...';
+      
+      // Submit form data to Google Sheets
+      fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form) 
+      })
+      .then(response => {
+        // Show success overlay
+        successOverlay.classList.add('show');
+        
+        // Redirect to YouTube channel after 2 seconds (SAME TAB - NO NEW TAB)
+        setTimeout(() => {
+          window.location.href = youtubeChannelURL;
+          
+          // Reset form and button
+          form.reset();
+          subscribeBtn.disabled = false;
+          btnText.textContent = '🔔 Subscribe Now';
+          successOverlay.classList.remove('show');
+        }, 2000);
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('Something went wrong. Please try again!');
+        
+        // Re-enable button
+        subscribeBtn.disabled = false;
+        btnText.textContent = '🔔 Subscribe Now';
+        successOverlay.classList.remove('show');
+      });
+    });
+    
+    // Add smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>
